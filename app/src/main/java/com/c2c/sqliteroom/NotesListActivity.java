@@ -18,6 +18,6 @@ public class NotesListActivity extends AppCompatActivity {
         //calling parameterised constructor
         Note note2 = new Note("Some title", "Some content", "Some timeStamp");
 
-        
+
     }
 }

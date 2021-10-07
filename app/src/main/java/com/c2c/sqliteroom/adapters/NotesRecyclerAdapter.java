@@ -13,7 +13,7 @@ import com.c2c.sqliteroom.models.Note;
 
 import java.util.ArrayList;
 
-class NotesRecyclerAdapter extends RecyclerView.Adapter<NotesRecyclerAdapter.ViewHolder> {
+public class NotesRecyclerAdapter extends RecyclerView.Adapter<NotesRecyclerAdapter.ViewHolder> {
 
     private ArrayList<Note> mNotes = new ArrayList<>();
 

@@ -1,23 +1,55 @@
 package com.c2c.sqliteroom;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
+import com.c2c.sqliteroom.adapters.NotesRecyclerAdapter;
 import com.c2c.sqliteroom.models.Note;
 
+import java.util.ArrayList;
+
 public class NotesListActivity extends AppCompatActivity {
+
+    private static final String TAG = "NotesListActivity";
+
+    //UI components
+    private RecyclerView mRecyclerView;
+
+    //vars
+    private ArrayList<Note> mNotes = new ArrayList<>();
+    private NotesRecyclerAdapter mNotesRecyclerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_notes_list);
 
-        //calling empty constructor
-        Note note1 = new Note();
-        //calling parameterised constructor
-        Note note2 = new Note("Some title", "Some content", "Some timeStamp");
+        mRecyclerView = findViewById(R.id.recycler_view);
 
+        initRecyclerView();
+        setDummyData();
+    }
+
+    private void setDummyData(){
+        for(int i=0; i<10; i++){
+            Note note = new Note();
+            note.setTitle("title # " + i);
+            note.setContent("content for # " + i);
+            note.setTimeStamp(i + " Jan 2021");
+            mNotes.add(note);
+        }
+        mNotesRecyclerAdapter.notifyDataSetChanged();
+    }
+
+    private void initRecyclerView(){
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
+        mNotesRecyclerAdapter = new NotesRecyclerAdapter(mNotes);
+        mRecyclerView.setAdapter(mNotesRecyclerAdapter);
 
     }
 }

@@ -1,6 +1,7 @@
 package com.c2c.sqliteroom;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,6 +34,9 @@ public class NotesListActivity extends AppCompatActivity {
 
         initRecyclerView();
         setDummyData();
+
+        setSupportActionBar((Toolbar) findViewById(R.id.notes_toolbar));
+        setTitle("Notes");
     }
 
     private void setDummyData(){

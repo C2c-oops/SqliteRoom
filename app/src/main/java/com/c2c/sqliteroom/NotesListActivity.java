@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 
 import com.c2c.sqliteroom.adapters.NotesRecyclerAdapter;
 import com.c2c.sqliteroom.models.Note;
+import com.c2c.sqliteroom.util.VerticalSpacingItemDecorator;
 
 import java.util.ArrayList;
 
@@ -48,6 +49,8 @@ public class NotesListActivity extends AppCompatActivity {
     private void initRecyclerView(){
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
+        VerticalSpacingItemDecorator spacingItemDecorator = new VerticalSpacingItemDecorator(10);
+        mRecyclerView.addItemDecoration(spacingItemDecorator);
         mNotesRecyclerAdapter = new NotesRecyclerAdapter(mNotes);
         mRecyclerView.setAdapter(mNotesRecyclerAdapter);
 

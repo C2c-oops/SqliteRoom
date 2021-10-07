@@ -14,7 +14,7 @@ import com.c2c.sqliteroom.util.VerticalSpacingItemDecorator;
 
 import java.util.ArrayList;
 
-public class NotesListActivity extends AppCompatActivity {
+public class NotesListActivity extends AppCompatActivity implements NotesRecyclerAdapter.OnNoteListener {
 
     private static final String TAG = "NotesListActivity";
 
@@ -55,8 +55,13 @@ public class NotesListActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(linearLayoutManager);
         VerticalSpacingItemDecorator spacingItemDecorator = new VerticalSpacingItemDecorator(10);
         mRecyclerView.addItemDecoration(spacingItemDecorator);
-        mNotesRecyclerAdapter = new NotesRecyclerAdapter(mNotes);
+        mNotesRecyclerAdapter = new NotesRecyclerAdapter(mNotes, this);
         mRecyclerView.setAdapter(mNotesRecyclerAdapter);
+
+    }
+
+    @Override
+    public void onNoteClick(int position) {
 
     }
 }

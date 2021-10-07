@@ -5,7 +5,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.LinearLayout;
 
 import com.c2c.sqliteroom.adapters.NotesRecyclerAdapter;
@@ -62,6 +64,10 @@ public class NotesListActivity extends AppCompatActivity implements NotesRecycle
 
     @Override
     public void onNoteClick(int position) {
+        Log.d(TAG, "onNoteClick: Clicked note # " + position);
+
+        Intent intent = new Intent(this, NotesContentActivity.class);
+        startActivity(intent);
 
     }
 }

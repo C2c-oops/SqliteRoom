@@ -43,7 +43,7 @@
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/toolbar_note_view_title_"
+        android:id="@+id/toolbar_note_view_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="85"
@@ -53,7 +53,7 @@
         android:textSize="23sp"
         android:visibility="visible"/>
 
-    <TextView
+    <EditText
         android:id="@+id/toolbar_note_edit_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

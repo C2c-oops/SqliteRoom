@@ -23,8 +23,7 @@
         android:lines="1"
         android:text="This is test title"
         android:padding="10dp"
-        android:textColor="@color/black"
-        />
+        android:textColor="@color/black" />
     
     <View
         android:layout_width="0dp"
@@ -38,11 +37,6 @@
         android:layout_weight="20"
         android:textSize="17sp"
         android:text="Oct 2021"
-        android:padding="10dp"
-        />
-
-
-
-
+        android:padding="10dp" />
 
 </LinearLayout>

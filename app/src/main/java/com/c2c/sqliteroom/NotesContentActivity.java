@@ -17,7 +17,8 @@ import com.c2c.sqliteroom.models.Note;
 public class NotesContentActivity extends AppCompatActivity implements
         View.OnTouchListener,
         GestureDetector.OnGestureListener,
-        GestureDetector.OnDoubleTapListener {
+        GestureDetector.OnDoubleTapListener,
+        View.OnClickListener {
 
     private static final String TAG = "NotesContentActivity";
 
@@ -67,6 +68,8 @@ public class NotesContentActivity extends AppCompatActivity implements
     private void setListeners(){
         mLinedEditText.setOnTouchListener(this);
         mGestureDetector = new GestureDetector(this, this);
+        mViewTitle.setOnClickListener(this);
+        mDoneBtn.setOnClickListener(this);
     }
 
     public boolean getIncomingIntent(){
@@ -161,5 +164,29 @@ public class NotesContentActivity extends AppCompatActivity implements
     @Override
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
         return false;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.toolbar_done_btn:{
+                disableEditMode();
+            }
+            case R.id.toolbar_note_view_title:{
+                enableEditMode();
+                mEditTitle.requestFocus();
+                mEditTitle.setSelection(mEditTitle.length());
+            }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(mMode == EDIT_MODE_ENABLED){
+            onClick(mDoneBtn);
+        }
+        else {
+            super.onBackPressed();
+        }
     }
 }

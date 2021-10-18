@@ -31,5 +31,6 @@
         android:layout_height="match_parent"
         android:textSize="23sp"
         android:textColor="@color/black"
-        android:padding="5dp"/>
+        android:padding="5dp"
+        android:gravity="top"/>
 </LinearLayout>
